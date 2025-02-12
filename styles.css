@@ -11,6 +11,25 @@ body {
   width: 1200px;
 }
 
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.equal-height {
+  display: flex;
+}
+
+.equal-height .column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  flex: 1;
+  margin: 0 10px;
+}
+
 .section {
   background-color: white;
   border-radius: 8px;
@@ -77,16 +96,17 @@ body {
 }
 
 .people-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
 .person-card {
-  width: 120px;
   text-align: center;
-  margin-right: 15px;
-  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .person-card img {
@@ -107,6 +127,7 @@ body {
   border-radius: 8px;
   padding: 20px;
   color: white;
+  flex: 1;
 }
 
 .statistics-header {
@@ -154,9 +175,6 @@ body {
 
 .statistics-graph {
   margin-top: 20px;
-  /* Placeholder for graph - use an actual graph library */
-  height: 100px;
-  background-color: rgba(255,255,255,0.2);
   border-radius: 5px;
 }
 
@@ -200,4 +218,8 @@ svg {
 
 .icon-normal {
   color:green;
+}
+
+.people-section .section-title {
+  background-color: #ffffff;
 }
