@@ -14,10 +14,12 @@ body {
 .row {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .equal-height {
   display: flex;
+  gap: 15px; /* Add gap property */
 }
 
 .equal-height .column {
@@ -27,7 +29,6 @@ body {
 
 .column {
   flex: 1;
-  margin: 0 10px;
 }
 
 .section {
@@ -76,6 +77,11 @@ body {
 
 .task-table td {
   color: #666;
+}
+
+.task-table td:first-child {
+  color: black; /* Change color of task names to black */
+  font-weight: 500; /* Make task names medium bold */
 }
 
 .task-table thead{
