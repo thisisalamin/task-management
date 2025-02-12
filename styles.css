@@ -116,7 +116,7 @@ body {
 }
 
 .add-task {
-  color: #3498db;
+  color: #414649;
   padding: 8px 10px;
   border: none;
   background-color: transparent;
@@ -240,7 +240,7 @@ svg {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%;
+  width: 500px;
   border-radius: 10px;
   animation: fadeIn 0.3s;
 }
@@ -271,7 +271,7 @@ svg {
 }
 
 .modern-form label {
-  font-weight: bold;
+  font-weight: normal;
   color: #333;
 }
 
