@@ -1,0 +1,242 @@
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f5;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 1200px;
+}
+
+.section {
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #f6f6f6;
+  padding: 10px;
+}
+
+.section-title i {
+  cursor: pointer;
+}
+
+.section-title p {
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.section-title span {
+  color: #666;
+  font-size: 14px;
+}
+
+.section-content {
+  display: none;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-table thead {
+  font-size: 14px;
+}
+
+.task-table th, .task-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.task-table th {
+  font-weight: bold;
+  color: #555;
+}
+
+.task-table td {
+  color: #666;
+}
+
+.priority-high {
+  color: red;
+}
+
+.priority-low {
+  color: blue;
+}
+
+.priority-normal {
+  color: green;
+}
+
+.people-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.person-card {
+  width: 90%;
+  text-align: center;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.person-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.person-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.statistics-card {
+  background-color: #5d3fd3;
+  border-radius: 8px;
+  padding: 20px;
+  color: white;
+  height: 100%;
+}
+
+.statistics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statistics-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.statistics-header select {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.statistics-header option {
+  color: black;
+}
+
+.statistics-numbers {
+  display: flex;
+  align-items: baseline;
+  margin-top: 15px;
+}
+
+.statistics-numbers h1 {
+  font-size: 48px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.statistics-numbers p {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.statistics-graph {
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.add-task {
+  color: #555;
+  padding: 8px 10px;
+  border:none;
+  background-color:transparent;
+  cursor: pointer;
+}
+
+.inline-images {
+  display: flex;
+  position: relative;
+}
+
+.inline-images img {
+  border-radius: 50%;
+  margin-right: -10px;
+  border: 2px solid white;
+}
+
+svg {
+  fill: currentColor;
+  height: 1em;
+  width: 1em;
+  vertical-align: -.125em;
+}
+
+.icon-high {
+  color:red;
+}
+
+.icon-low {
+  color:blue;
+}
+
+.icon-normal {
+  color:green;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.column:last-child {
+  margin-right: 0;
+}
+
+.people-section, .statistics-card {
+  height: 100%;
+}
+
+.people-section .section-title{
+  background-color: #ffffff;
+}
+
+
+.section-title .dash-button{
+  background-color: #ebebeb;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  border-radius: 10px;
+
+}
