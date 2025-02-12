@@ -1,6 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f0f0f5;
+  background-color: #e6e6ff; /* light purple */
   margin: 0;
   padding: 20px;
   display: flex;
@@ -9,7 +9,17 @@ body {
 
 .container {
   width: 1200px;
-  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* container shadow */
+}
+
+.task-sections{
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.user-info-section-container{
+  background-color: #f8f9fa;
+  margin-top: 30px;
   border-radius: 10px;
 }
 
@@ -38,7 +48,7 @@ body {
 }
 
 .section {
-  background-color: white;
+  background-color: #ffffff; /* white */
   border-radius: 8px;
   margin-bottom: 0px;
   padding: 15px;
@@ -49,19 +59,19 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
-  background-color: #f6f6f6;
+  background-color: #f8f9fa; /* very light gray */
   padding: 10px;
   border-radius: 10px;
 }
 
 .section-title p {
   font-weight: bold;
-  color: #333;
+  color: #1a1a1a; /* almost black */
   margin: 0;
 }
 
 .section-title span {
-  color: #666;
+  color: #6b7280; /* medium gray */
   font-size: 12px;
 }
 
@@ -74,7 +84,7 @@ body {
 .task-table th, .task-table td {
   text-align: left;
   padding: 8px 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f1f5f9; /* very light gray-blue */
   word-wrap: break-word; /* Ensure long text wraps within the cell */
 }
 
@@ -88,15 +98,15 @@ body {
 
 .task-table th {
   font-weight: normal;
-  color: black;
+  color: #374151; /* dark gray */
 }
 
 .task-table td {
-  color: #666;
+  color: #6b7280; /* medium gray */
 }
 
 .task-table td:first-child {
-  color: black; /* Change color of task names to black */
+  color: #1a1a1a; /* almost black */
   font-weight: medium; /* Make task names medium bold */
 }
 
@@ -106,15 +116,15 @@ body {
 }
 
 .priority-high {
-  color: red;
+  color: #dc2626; /* red */
 }
 
 .priority-low {
-  color: blue;
+  color: #2563eb; /* blue */
 }
 
 .priority-normal {
-  color: green;
+  color: #059669; /* green */
 }
 
 .add-task {
@@ -151,7 +161,7 @@ svg {
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* container shadow */
 }
 
 .section-title.modern-title {
@@ -171,7 +181,7 @@ svg {
 
 .dash-button.modern-button {
   font-size: 14px;
-  color: #3498db;
+  color: #3498db; /* blue */
   text-decoration: none;
 }
 
@@ -187,10 +197,10 @@ svg {
   gap: 20px;
 }
 
-.user-info-card{
+.user-info-card {
   padding: 10px 20px;
-  border: 1px solid #f0f0f5;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f9; /* very light gray-blue */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* card hover shadow */
   border-radius: 10px;
   text-align: center;
   transition: transform 0.3s ease;
@@ -206,18 +216,18 @@ svg {
 .user-info-card.modern-card i {
   font-size: 30px;
   margin-bottom: 0px; /* Reduce margin-bottom */
-  color: #333; /* Change color to grey */
+  color: #4b5563; /* gray */
 }
 
 .user-info-card.modern-card h6 {
   font-size: 16px;
   margin-bottom: 0px; /* Reduce margin-bottom */
-  color: #333333; /* Change color to grey */
+  color: #333333; /* gray */
 }
 
 .user-info-card.modern-card p {
   font-size: 14px;
-  color: black; /* Change color to light grey */
+  color: #1a1a1a; /* almost black */
 }
 
 .user-info-card.modern-card:hover {
@@ -279,14 +289,18 @@ svg {
 
 .modern-form input, .modern-form select, .modern-form textarea {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #e5e7eb; /* light gray */
   border-radius: 5px;
   font-size: 14px;
 }
 
+.modern-form input:focus, .modern-form select:focus, .modern-form textarea:focus {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1); /* light blue */
+}
+
 .modern-form button {
   padding: 10px 15px;
-  background-color: #3498db;
+  background-color: #3498db; /* blue */
   color: white;
   border: none;
   border-radius: 5px;
@@ -295,20 +309,44 @@ svg {
 }
 
 .modern-form button:hover {
-  background-color: #2980b9;
+  background-color: #2980b9; /* darker blue */
 }
 
 .progress-color {
-  color: #3498db;
+  color: #3498db; /* blue */
   font-size: 12px;
 }
 
 .completed-color {
-  color: #2ecc71; 
+  color: #2ecc71; /* green */
   font-size: 12px;
 }
 
 .review-color {
-  color: #f39c12;
+  color: #f39c12; /* orange */
   font-size: 12px;
+}
+
+.user-info-card.bg-cyan {
+  background-color: #f0fdff; /* very light cyan */
+}
+
+.user-info-card.bg-success {
+  background-color: #f0fdf4; /* very light green */
+}
+
+.user-info-card.bg-warning {
+  background-color: #fffbeb; /* very light yellow */
+}
+
+.user-info-card.bg-danger {
+  background-color: #fef2f2; /* very light red */
+}
+
+.user-info-card.bg-info {
+  background-color: #f0f9ff; /* very light blue */
+}
+
+.user-info-card.bg-secondary {
+  background-color: #f8fafc; /* very light gray-blue */
 }
