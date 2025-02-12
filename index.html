@@ -58,7 +58,7 @@
             </tr>
           </tbody>
         </table>
-        <button class="add-task">+ Add task</button>
+        <button class="add-task" onclick="showTaskForm()">+ Add task</button>
       </div>
     </div>
 
@@ -95,7 +95,7 @@
             </tr>
           </tbody>
         </table>
-        <button class="add-task">+ Add task</button>
+        <button class="add-task" onclick="showTaskForm()">+ Add task</button>
       </div>
     </div>
 
@@ -110,66 +110,78 @@
     </div>
 
     <div class="row equal-height">
-      <div class="column">
-        <div class="section user-info-section">
+      <div class="column full-width">
+        <div class="section user-info-section modern-style">
           <div class="section-title">
-            <p>User Info</p>
-            <a class="dash-button" href="#">See all <i class="fa-solid fa-angle-right"></i></a>
+            <p>User Information</p>
+            <a class="dash-button modern-button" href="#">See all <i class="fa-solid fa-angle-right"></i></a>
           </div>
-          <div class="user-info-list">
-            <div class="info-card">
-              <i class="fas fa-user-circle"></i>
-              <p>cPanel Login</p>
+          <div class="user-info-grid three-columns">
+            <div class="user-info-card modern-card bg-cyan">
+              <i class="fas fa-user"></i>
+              <h6>cPanel Login</h6>
               <p>Manage your website</p>
             </div>
-            <div class="info-card">
+            <div class="user-info-card modern-card bg-success">
               <i class="fas fa-globe"></i>
-              <p>Domains</p>
+              <h6>Domains</h6>
               <p>Manage your domains</p>
             </div>
-            <div class="info-card">
+            <div class="user-info-card modern-card bg-warning">
               <i class="fas fa-file-invoice"></i>
-              <p>Invoices</p>
+              <h6>Invoices</h6>
               <p>View your invoices</p>
             </div>
-            <div class="info-card">
+            <div class="user-info-card modern-card bg-danger">
               <i class="fas fa-ticket-alt"></i>
-              <p>Ticket Submission</p>
+              <h6>Ticket Submission</h6>
               <p>Submit support tickets</p>
             </div>
-            <div class="info-card">
+            <div class="user-info-card modern-card bg-info">
               <i class="fas fa-info-circle"></i>
-              <p>Website Information</p>
+              <h6>Website Information</h6>
               <p>View website details</p>
             </div>
-            <div class="info-card">
+            <div class="user-info-card modern-card bg-secondary">
               <i class="fas fa-cogs"></i>
-              <p>Settings</p>
+              <h6>Settings</h6>
               <p>Account settings</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="column">
-        <div class="section statistics-card">
-          <div class="statistics-header">
-            <h2>Statistics</h2>
-            <select>
-              <option>Last week</option>
-            </select>
-          </div>
-          <div class="statistics-numbers">
-            <h1>36</h1>
-            <p>Hours</p>
-            <h1>17</h1>
-            <p>Minutes</p>
-          </div>
-          <div class="statistics-graph">
-            <canvas id="statisticsChart"></canvas>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
+
+  <!-- Task Form Popup -->
+  <div id="taskFormPopup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closeTaskForm()">&times;</span>
+      <form id="taskForm" class="modern-form">
+        <label for="project">Select Project:</label>
+        <select id="project" name="project">
+          <option value="Project Alpha">Project Alpha</option>
+          <option value="E-Shop">E-Shop</option>
+          <option value="HR Portal">HR Portal</option>
+        </select>
+        <label for="taskName">Task Name:</label>
+        <input type="text" id="taskName" name="taskName" required>
+        <label for="taskDescription">Description:</label>
+        <textarea id="taskDescription" name="taskDescription" required></textarea>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required>
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority">
+          <option value="High">High</option>
+          <option value="Normal">Normal</option>
+          <option value="Low">Low</option>
+        </select>
+        <label for="fileUpload">Drop files here:</label>
+        <input type="file" id="fileUpload" name="fileUpload">
+        <button type="submit">Submit ticket</button>
+      </form>
+    </div>
+  </div>
+  <script src="scripts.js"></script>
 </body>
 </html>
