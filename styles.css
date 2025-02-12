@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f0f0f5;
   margin: 0;
   padding: 20px;
@@ -25,11 +25,7 @@ body {
   align-items: center;
   margin-bottom: 15px;
   background-color: #f6f6f6;
-  padding: 10px;
-}
-
-.section-title i {
-  cursor: pointer;
+  padding: 10px;;
 }
 
 .section-title p {
@@ -40,20 +36,12 @@ body {
 
 .section-title span {
   color: #666;
-  font-size: 14px;
-}
-
-.section-content {
-  display: none;
+  font-size: 12px;
 }
 
 .task-table {
   width: 100%;
   border-collapse: collapse;
-}
-
-.task-table thead {
-  font-size: 14px;
 }
 
 .task-table th, .task-table td {
@@ -71,6 +59,11 @@ body {
   color: #666;
 }
 
+.task-table thead{
+  font-size: 14px;
+  font-weight: 400 !important;
+}
+
 .priority-high {
   color: red;
 }
@@ -84,20 +77,16 @@ body {
 }
 
 .people-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .person-card {
-  width: 90%;
+  width: 120px;
   text-align: center;
   margin-right: 15px;
   margin-bottom: 15px;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .person-card img {
@@ -110,7 +99,7 @@ body {
 
 .person-card p {
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .statistics-card {
@@ -118,7 +107,6 @@ body {
   border-radius: 8px;
   padding: 20px;
   color: white;
-  height: 100%;
 }
 
 .statistics-header {
@@ -166,11 +154,14 @@ body {
 
 .statistics-graph {
   margin-top: 20px;
+  /* Placeholder for graph - use an actual graph library */
+  height: 100px;
+  background-color: rgba(255,255,255,0.2);
   border-radius: 5px;
 }
 
 .add-task {
-  color: #555;
+  color: #3498db;
   padding: 8px 10px;
   border:none;
   background-color:transparent;
@@ -184,8 +175,12 @@ body {
 
 .inline-images img {
   border-radius: 50%;
-  margin-right: -10px;
+  margin-left: -20px;
   border: 2px solid white;
+}
+
+.inline-images img:first-child {
+  margin-left: 0;
 }
 
 svg {
@@ -205,38 +200,4 @@ svg {
 
 .icon-normal {
   color:green;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.column {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.column:last-child {
-  margin-right: 0;
-}
-
-.people-section, .statistics-card {
-  height: 100%;
-}
-
-.people-section .section-title{
-  background-color: #ffffff;
-}
-
-
-.section-title .dash-button{
-  background-color: #ebebeb;
-  padding: 5px 10px;
-  text-decoration: none;
-  border: none;
-  color: #333;
-  cursor: pointer;
-  border-radius: 10px;
-
 }
