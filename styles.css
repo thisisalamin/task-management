@@ -297,3 +297,18 @@ svg {
 .modern-form button:hover {
   background-color: #2980b9;
 }
+
+.progress-color {
+  color: #3498db;
+  font-size: 12px;
+}
+
+.completed-color {
+  color: #2ecc71; 
+  font-size: 12px;
+}
+
+.review-color {
+  color: #f39c12;
+  font-size: 12px;
+}
