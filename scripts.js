@@ -49,3 +49,17 @@ $(document).ready(function() {
     closeTaskForm();
   });
 });
+
+// Add close notification functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const closeNotification = document.querySelector('.close-notification');
+    if (closeNotification) {
+        closeNotification.addEventListener('click', function() {
+            const notification = document.querySelector('.maintenance-notification');
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 300); // matches the CSS transition duration
+        });
+    }
+});
