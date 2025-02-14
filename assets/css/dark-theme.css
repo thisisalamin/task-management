@@ -110,3 +110,11 @@ body.dark-theme .user-info-card p,
 body.dark-theme .user-info-card i {
   color: #fff;
 }
+
+body.dark-theme .add-task{
+  color: #E6E6FF;
+}
+
+body.dark-theme .section-title span{
+  color: #E6E6FF;
+}
