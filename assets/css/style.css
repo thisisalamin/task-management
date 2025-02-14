@@ -1,5 +1,7 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Lexend", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   background-color: #e6e6ff; /* light purple */
   margin: 0;
   padding: 0; /* Remove padding from body */
