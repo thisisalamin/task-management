@@ -430,6 +430,7 @@ svg {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   animation: slideDown 0.5s ease-out;
   transition: opacity 0.3s ease;
+  justify-content: space-between;
 }
 
 .maintenance-notification i.fa-exclamation-triangle {
@@ -442,19 +443,23 @@ svg {
   font-weight: 500;
 }
 
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .close-notification {
   background: none;
   border: none;
   color: #856404;
   cursor: pointer;
   padding: 0;
-  font-size: 14px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
+  font-size: 16px;
 }
 
 .close-notification:hover {
-  opacity: 1;
+  color: #533f03;
 }
 
 /* START: User Info Section Styles */
