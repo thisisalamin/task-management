@@ -146,12 +146,15 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   const themeToggle = document.getElementById('themeToggle');
   const icon = themeToggle.querySelector('i');
+  const logo = document.querySelector('.sidebar-header .logo');
+  const logoPath = '/assets/images/';
   
   // Check for saved theme preference
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
     document.body.classList.add('dark-theme');
     icon.classList.replace('fa-sun', 'fa-moon');
+    logo.src = logoPath + 'logo-w.png';
   }
 
   themeToggle.addEventListener('click', function() {
@@ -159,9 +162,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (document.body.classList.contains('dark-theme')) {
       icon.classList.replace('fa-sun', 'fa-moon');
+      logo.src = logoPath + 'logo-w.png';
       localStorage.setItem('theme', 'dark');
     } else {
       icon.classList.replace('fa-moon', 'fa-sun');
+      logo.src = logoPath + 'nlogo.png';
       localStorage.setItem('theme', 'light');
     }
   });
