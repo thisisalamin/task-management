@@ -70,9 +70,13 @@ body {
   list-style: none;
   padding-left: 20px;
   margin: 5px 0;
-  display: none;
+  display: none; /* Ensure submenus are hidden by default */
   background-color: transparent; /* Changed from rgba(0, 0, 0, 0.1) to transparent */
   border-radius: 5px;
+}
+
+.nav-list .sub-menu.active {
+  display: block; /* Display submenus when active */
 }
 
 .nav-list .sub-menu li {
@@ -98,15 +102,16 @@ body {
 
 .nav-list li a .fa-chevron-right,
 .nav-list li a .fa-chevron-down {
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease; /* Make the transition faster */
   font-size: 12px;
+  margin-left: auto; /* Ensure the icon stays on the right */
 }
 
 .nav-list li .sub-menu {
   display: none;
   padding-left: 30px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease; /* Make the transition faster */
 }
 
 .nav-list li .sub-menu.active {
@@ -115,8 +120,8 @@ body {
 
 .nav-list li .fa-chevron-down,
 .nav-list li .fa-chevron-right {
-  float: right;
-  transition: transform 0.3s ease;
+  font-size: 12px; /* Set a consistent font size */
+  transition: transform 0.2s ease; /* Make the transition faster */
 }
 
 .nav-list li .fa-chevron-down.rotate {
@@ -823,6 +828,9 @@ svg {
 }
 
 @media screen and (max-width: 768px) {
+  .container{
+    padding: 0px;
+  }
   /* Mobile Layout */
   .dashboard-container {
     flex-direction: column;
@@ -892,6 +900,8 @@ svg {
 
   .maintenance-notification {
     width: 90%;
+    margin-bottom: 10px;
+    padding: 15px 10px;
   }
 }
 

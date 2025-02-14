@@ -3,7 +3,7 @@ $(document).ready(function() {
     event.preventDefault();
     event.stopPropagation();
     const sectionContent = $(icon).parent().next('.section-content');
-    sectionContent.slideToggle();
+    sectionContent.slideToggle(200); // Make the toggle faster
     $(icon).toggleClass('fa-chevron-down fa-chevron-up');
   }
 
@@ -54,56 +54,33 @@ $(document).ready(function() {
   $('.nav-list .sub-menu a').off('click');
   $(document).off('click.submenu');
 
-  // Add new menu click handler
+  // Single consolidated submenu handler
   $('.nav-list > li > a').on('click', function(e) {
-    if ($(this).siblings('.sub-menu').length) {
+    const $submenu = $(this).siblings('.sub-menu');
+    if ($submenu.length) {
       e.preventDefault();
       e.stopPropagation();
       
-      // Toggle only this submenu
-      const $submenu = $(this).siblings('.sub-menu');
-      const $icon = $(this).find('.fa-chevron-right, .fa-chevron-down');
-      
-      // Don't close if already open
-      if (!$submenu.is(':visible')) {
-        // Close other submenus
-        $('.nav-list > li > a').not(this).siblings('.sub-menu').slideUp(300);
-        $('.nav-list > li > a').not(this).find('.fa-chevron-down')
-          .removeClass('fa-chevron-down')
-          .addClass('fa-chevron-right');
-      }
+      // Close other submenus
+      $('.nav-list > li > a').not(this).siblings('.sub-menu').slideUp(200); // Make the toggle faster
+      $('.nav-list > li > a').not(this).find('.fa-chevron-down')
+        .removeClass('fa-chevron-down')
+        .addClass('fa-chevron-right');
       
       // Toggle current submenu
-      $submenu.slideToggle(0);
-      $icon.toggleClass('fa-chevron-right fa-chevron-down');
+      $submenu.slideToggle(200); // Make the toggle faster
+      $(this).find('.fas').toggleClass('fa-chevron-right fa-chevron-down');
     }
   });
 
-  // Make submenu items clickable without closing
+  // Make submenu items clickable without toggling parent
   $('.nav-list .sub-menu a').on('click', function(e) {
     e.stopPropagation();
   });
 
-  // Add this new handler for clicking anywhere else on the page
-  $(document).click(function(e) {
-    if (!$(e.target).closest('.nav-list').length) {
-      $('.sub-menu').slideUp(300);
-      $('.nav-list li a .fa-chevron-down').removeClass('fa-chevron-down').addClass('fa-chevron-right');
-    }
-  });
-
-  // Prevent submenu items from closing the submenu when clicked
-  $('.nav-list .sub-menu a').click(function(e) {
+  // Mobile menu handlers
+  $('.mobile-menu-toggle').on('click', function(e) {
     e.stopPropagation();
-  });
-
-  // Mobile Menu Toggle
-  // Add mobile menu toggle button
-  $('<button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>').insertAfter('.sidebar');
-  $('<div class="sidebar-overlay"></div>').insertAfter('.sidebar');
-
-  // Toggle mobile menu
-  $('.mobile-menu-toggle').on('click', function() {
     $('.sidebar').toggleClass('active');
     $('.sidebar-overlay').toggleClass('active');
   });
@@ -114,8 +91,16 @@ $(document).ready(function() {
     $('.sidebar-overlay').removeClass('active');
   });
 
-  // Close menu when clicking a menu item
-  $('.nav-list li a').on('click', function() {
+  // Close sidebar when clicking outside or on overlay
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.sidebar, .mobile-menu-toggle').length) {
+      $('.sidebar').removeClass('active');
+      $('.sidebar-overlay').removeClass('active');
+    }
+  });
+
+  // Close sidebar when a menu item without a submenu is clicked
+  $('.nav-list > li > a').not(':has(+ .sub-menu)').on('click', function(e) {
     if (window.innerWidth <= 768) {
       $('.sidebar').removeClass('active');
       $('.sidebar-overlay').removeClass('active');
@@ -129,10 +114,22 @@ $(document).ready(function() {
       $('.sidebar-overlay').removeClass('active');
     }
   });
+
+  // Replace CSS animation with jQuery animation for notification
+  $('.close-notification').on('click', function() {
+    const $notification = $('.maintenance-notification');
+    $notification.animate({
+      top: -$notification.outerHeight(),
+      opacity: 0
+    }, 500, function() {
+      $(this).hide();
+    });
+  });
 });
 
-// Add close notification functionality
+// Remove the duplicate menu handlers from DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', function() {
+    // Keep only notification related code here
     const closeNotification = document.querySelector('.close-notification');
     if (closeNotification) {
         closeNotification.addEventListener('click', function() {
@@ -140,66 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
             notification.style.opacity = '0';
             setTimeout(() => {
                 notification.style.display = 'none';
-            }, 300); // matches the CSS transition duration
+            }, 100);
         });
     }
-
-    // Add click handlers to menu items with submenus
-    const menuItems = document.querySelectorAll('.nav-list li');
-    
-    menuItems.forEach(item => {
-        const submenu = item.querySelector('.sub-menu');
-        const icon = item.querySelector('.fas.fa-chevron-down, .fas.fa-chevron-right');
-        
-        if (submenu && icon) {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Toggle submenu
-                submenu.classList.toggle('active');
-                
-                // Rotate icon
-                icon.classList.toggle('rotate');
-                
-                // Close other open submenus
-                menuItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        const otherSubmenu = otherItem.querySelector('.sub-menu');
-                        const otherIcon = otherItem.querySelector('.fas.fa-chevron-down, .fas.fa-chevron-right');
-                        if (otherSubmenu) {
-                            otherSubmenu.classList.remove('active');
-                        }
-                        if (otherIcon) {
-                            otherIcon.classList.remove('rotate');
-                        }
-                    }
-                });
-            });
-        }
-    });
 });
-
-document.querySelector('.close-notification').addEventListener('click', function() {
-  const notification = document.querySelector('.maintenance-notification');
-  notification.style.animation = 'slideOutToTop 0.5s ease-out forwards';
-  setTimeout(() => {
-    notification.style.display = 'none';
-  }, 500);
-});
-
-// Add this to your existing CSS
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes slideOutToTop {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-  }
-`;
-document.head.appendChild(style);
