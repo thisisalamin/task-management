@@ -67,8 +67,10 @@ body {
 .nav-list .sub-menu {
   list-style: none;
   padding-left: 20px;
-  margin: 0;
-  display: none; /* Initially hide submenu */
+  margin: 5px 0;
+  display: none;
+  background-color: transparent; /* Changed from rgba(0, 0, 0, 0.1) to transparent */
+  border-radius: 5px;
 }
 
 .nav-list .sub-menu li {
@@ -76,8 +78,26 @@ body {
 }
 
 .nav-list .sub-menu a {
-  font-size: 14px;
-  padding: 8px 10px;
+  font-size: 13px;
+  padding: 8px 15px;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+}
+
+.nav-list .sub-menu li a i {
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.nav-list .sub-menu li a:hover {
+  color: #fff;
+}
+
+.nav-list li a .fa-chevron-right,
+.nav-list li a .fa-chevron-down {
+  transition: transform 0.3s ease;
+  font-size: 12px;
 }
 
 /* Content Area Styles */
