@@ -927,10 +927,15 @@ svg {
   }
 }
 
+/* Hide mobile menu toggle by default */
+.mobile-menu-toggle {
+  display: none; /* Hide by default on desktop */
+}
+
 /* Enhanced Mobile Menu */
 @media screen and (max-width: 768px) {
   .mobile-menu-toggle {
-    display: block;
+    display: block; /* Only show on mobile */
     position: fixed;
     top: 10px;
     right: 10px;
@@ -939,6 +944,8 @@ svg {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: none;
+    cursor: pointer;
   }
 
   .dashboard-container .sidebar {
