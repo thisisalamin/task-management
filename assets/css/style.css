@@ -616,8 +616,8 @@ svg {
 /* Content Wrapper for Sidebar */
 .dashboard-container .sidebar {
     width: 220px;
-    background-color: #2c3e50;
-    color: #fff;
+    background-color: #f0f4ff;
+    color: black;
     padding: 0px;
     position: fixed; /* Change to fixed */
     height: 100vh;
@@ -675,7 +675,7 @@ svg {
 /* Adjust the spacing of navigation text */
 .dashboard-container .sidebar .nav-list li a {
     display: block;
-    color: #fff;
+    color: #333333;
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -692,7 +692,7 @@ svg {
     width: 16px;
     margin-right: 8px;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
+    color: #333333;
 }
 
 .nav-list .sub-menu li a:hover i {
