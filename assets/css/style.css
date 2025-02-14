@@ -100,6 +100,31 @@ body {
   font-size: 12px;
 }
 
+.nav-list li .sub-menu {
+  display: none;
+  padding-left: 30px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.nav-list li .sub-menu.active {
+  display: block;
+}
+
+.nav-list li .fa-chevron-down,
+.nav-list li .fa-chevron-right {
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-list li .fa-chevron-down.rotate {
+  transform: rotate(180deg);
+}
+
+.nav-list li .fa-chevron-right.rotate {
+  transform: rotate(90deg);
+}
+
 /* Content Area Styles */
 .content {
   flex: 1;
@@ -645,6 +670,17 @@ svg {
 .dashboard-container .sidebar .nav-list .sub-menu li a {
     font-size: 14px;
     padding: 8px 10px;
+}
+
+.nav-list .sub-menu li a i {
+    width: 16px;
+    margin-right: 8px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-list .sub-menu li a:hover i {
+    color: #fff;
 }
 
 /* Style the sidebar content */

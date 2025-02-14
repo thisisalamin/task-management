@@ -110,4 +110,39 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300); // matches the CSS transition duration
         });
     }
+
+    // Add click handlers to menu items with submenus
+    const menuItems = document.querySelectorAll('.nav-list li');
+    
+    menuItems.forEach(item => {
+        const submenu = item.querySelector('.sub-menu');
+        const icon = item.querySelector('.fas.fa-chevron-down, .fas.fa-chevron-right');
+        
+        if (submenu && icon) {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Toggle submenu
+                submenu.classList.toggle('active');
+                
+                // Rotate icon
+                icon.classList.toggle('rotate');
+                
+                // Close other open submenus
+                menuItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        const otherSubmenu = otherItem.querySelector('.sub-menu');
+                        const otherIcon = otherItem.querySelector('.fas.fa-chevron-down, .fas.fa-chevron-right');
+                        if (otherSubmenu) {
+                            otherSubmenu.classList.remove('active');
+                        }
+                        if (otherIcon) {
+                            otherIcon.classList.remove('rotate');
+                        }
+                    }
+                });
+            });
+        }
+    });
 });
