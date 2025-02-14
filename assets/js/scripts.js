@@ -68,7 +68,7 @@ $(document).ready(function() {
         .addClass('fa-chevron-right');
       
       // Toggle current submenu
-      $submenu.slideToggle(200); // Make the toggle faster
+      $submenu.slideToggle(100); // Make the toggle faster
       $(this).find('.fas').toggleClass('fa-chevron-right fa-chevron-down');
     }
   });
