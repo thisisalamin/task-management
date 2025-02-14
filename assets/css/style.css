@@ -1,0 +1,723 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #e6e6ff; /* light purple */
+  margin: 0;
+  padding: 0; /* Remove padding from body */
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-container {
+  display: flex;
+  width: 100%; /* Take full width */
+  min-height: 100vh; /* Full viewport height */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* container shadow */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 150px;
+  background-color: #2c3e50; /* Dark blue-gray sidebar */
+  color: #fff;
+  padding: 20px;
+}
+
+.sidebar-header {
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.logo {
+  width: 100%; /* Adjust as needed */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  margin-bottom: 10px;
+}
+
+.nav-list li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-list li a:hover,
+.nav-list li.active a {
+  background-color: rgba(255, 255, 255, 0.1); /* Lighter hover/active state */
+}
+
+.nav-list li a i {
+  margin-right: 8px;
+  width: 20px; /* Adjust icon size */
+  text-align: center;
+}
+
+.nav-list .sub-menu {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+  display: none; /* Initially hide submenu */
+}
+
+.nav-list .sub-menu li {
+  margin-bottom: 5px;
+}
+
+.nav-list .sub-menu a {
+  font-size: 14px;
+  padding: 8px 10px;
+}
+
+/* Content Area Styles */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar Styles */
+.topbar {
+  background-color: #f0f0f5; /* Light gray */
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.breadcrumbs {
+  color: #777;
+  font-size: 14px;
+}
+
+.breadcrumbs a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+/* Main Content Styles */
+.main-content {
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Your existing styles remain largely the same, but adjust as needed */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.task-sections {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.section {
+  background-color: #ffffff; /* white */
+  border-radius: 8px;
+  margin-bottom: 0px;
+  padding: 15px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #f8f9fa; /* very light gray */
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.section-title p {
+  font-weight: bold;
+  color: #1a1a1a; /* almost black */
+  margin: 0;
+}
+
+.section-title span {
+  color: #6b7280; /* medium gray */
+  font-size: 12px;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Ensure table columns maintain their width */
+}
+
+.task-table th, .task-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #f1f5f9; /* very light gray-blue */
+  word-wrap: break-word; /* Ensure long text wraps within the cell */
+}
+
+.task-table th:nth-child(1), .task-table td:nth-child(1) {
+  width: 25%; /* Make Task name column wider */
+}
+
+.task-table th:nth-child(2), .task-table td:nth-child(2) {
+  width: 35%; /* Make Description column wider */
+}
+
+.task-table th {
+  font-weight: normal;
+  color: #374151; /* dark gray */
+}
+
+.task-table td {
+  color: #6b7280; /* medium gray */
+}
+
+.task-table td:first-child {
+  color: #1a1a1a; /* almost black */
+  font-weight: medium; /* Make task names medium bold */
+}
+
+.task-table thead {
+  font-size: 14px;
+  font-weight: 400 !important;
+}
+
+.priority-high {
+  color: #dc2626; /* red */
+}
+
+.priority-low {
+  color: #2563eb; /* blue */
+}
+
+.priority-normal {
+  color: #059669; /* green */
+}
+
+.add-task {
+  color: #414649;
+  padding: 8px 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.inline-images {
+  display: flex;
+  position: relative;
+}
+
+.inline-images img {
+  border-radius: 50%;
+  margin-left: -20px;
+  border: 2px solid white;
+}
+
+.inline-images img:first-child {
+  margin-left: 0;
+}
+
+svg {
+  fill: currentColor;
+  height: 1em;
+  width: 1em;
+  vertical-align: -.125em;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 500px;
+  border-radius: 10px;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modern-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modern-form label {
+  font-weight: normal;
+  color: #333;
+}
+
+.modern-form input, .modern-form select, .modern-form textarea {
+  padding: 10px;
+  border: 1px solid #e5e7eb; /* light gray */
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.modern-form input:focus, .modern-form select:focus, .modern-form textarea:focus {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1); /* light blue */
+}
+
+.modern-form button {
+  padding: 10px 15px;
+  background-color: #3498db; /* blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modern-form button:hover {
+  background-color: #2980b9; /* darker blue */
+}
+
+.progress-color {
+  color: #3498db; /* blue */
+  font-size: 12px;
+}
+
+.completed-color {
+  color: #2ecc71; /* green */
+  font-size: 12px;
+}
+
+.review-color {
+  color: #f39c12; /* orange */
+  font-size: 12px;
+}
+
+.user-info-card.bg-cyan {
+  background-color: #f0fdff; /* very light cyan */
+}
+
+.user-info-card.bg-success {
+  background-color: #f0fdf4; /* very light green */
+}
+
+.user-info-card.bg-warning {
+  background-color: #fffbeb; /* very light yellow */
+}
+
+.user-info-card.bg-danger {
+  background-color: #fef2f2; /* very light red */
+}
+
+.user-info-card.bg-info {
+  background-color: #f0f9ff; /* very light blue */
+}
+
+.user-info-card.bg-secondary {
+  background-color: #f8fafc; /* very light gray-blue */
+}
+
+.maintenance-notification {
+  position: fixed;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  padding: 12px 25px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.5s ease-out;
+  transition: opacity 0.3s ease;
+}
+
+.maintenance-notification i.fa-exclamation-triangle {
+  font-size: 18px;
+  color: #f39c12;
+}
+
+.maintenance-notification span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.close-notification {
+  background: none;
+  border: none;
+  color: #856404;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close-notification:hover {
+  opacity: 1;
+}
+
+/* START: User Info Section Styles */
+.user-info-section-container {
+    background-color: #f8f9fa;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.user-info-section.modern-style {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title.modern-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f5;
+    padding-bottom: 10px;
+}
+
+.section-title.modern-title p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.dash-button.modern-button {
+    font-size: 14px;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.user-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.user-info-grid.three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.user-info-card {
+    padding: 10px 20px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.user-info-card.modern-card {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.user-info-card.modern-card i {
+    font-size: 30px;
+    margin-bottom: 0px;
+    color: #4b5563;
+}
+
+.user-info-card.modern-card h6 {
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: #333333;
+}
+
+.user-info-card.modern-card p {
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.user-info-card.modern-card:hover {
+    transform: translateY(-5px);
+}
+
+.user-info-card.bg-cyan {
+    background-color: #f0fdff;
+}
+
+.user-info-card.bg-success {
+    background-color: #f0fdf4;
+}
+
+.user-info-card.bg-warning {
+    background-color: #fffbeb;
+}
+
+.user-info-card.bg-danger {
+    background-color: #fef2f2;
+}
+
+.user-info-card.bg-info {
+    background-color: #f0f9ff;
+}
+
+.user-info-card.bg-secondary {
+    background-color: #f8fafc;
+}
+/* END: User Info Section Styles */
+/* Container Styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Notification Styles */
+.maintenance-notification {
+  position: relative; /* Changed to relative to fit in content area */
+  top: auto;
+  left: auto;
+  transform: none;
+  margin-bottom: 20px;
+  width: auto;
+}
+
+/* Styles for full-screen task dashboard layout */
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Flex Content Container */
+.dashboard-container .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content Wrapper for Sidebar */
+.dashboard-container .sidebar {
+    width: 220px;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 0px;
+    position: fixed; /* Change to fixed */
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+}
+
+/* Make Content Body Stretch to Fill Remaining Space */
+.dashboard-container .content .main-content {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* User Display, Icon Style  */
+.dashboard-container .content .topbar .user-info img.user-avatar {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px; /* Spacing for Icon and Text */
+}
+
+/* Adjust to match top navigation */
+.dashboard-container .content .topbar {
+    background-color: #f0f0f5;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Breadcrumb Location */
+.dashboard-container .content .topbar .breadcrumbs {
+    color: #777;
+    font-size: 14px;
+}
+
+/* Adjust the size of the dashboard content */
+.dashboard-container .content .main-content {
+    padding: 20px;
+    width: 100%; /* Make the dashboard take up the whole content */
+    box-sizing: border-box;
+}
+
+/* Correctly display the logo and navigation */
+.dashboard-container .sidebar .nav-list li a i {
+    margin-right: 8px;
+    width: 20px; /* Spacing to center text with logo and icon*/
+    text-align: center;
+}
+
+/* Adjust the spacing of navigation text */
+.dashboard-container .sidebar .nav-list li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Correctly display the icons*/
+.dashboard-container .sidebar .nav-list .sub-menu li a {
+    font-size: 14px;
+    padding: 8px 10px;
+}
+
+/* Style the sidebar content */
+.dashboard-container .sidebar .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation */
+.dashboard-container .sidebar .nav-list li {
+    margin-bottom: 10px;
+}
+
+/* Adjust main content to accommodate fixed sidebar */
+.dashboard-container .content {
+    margin-left: 220px; /* Add margin equal to sidebar width */
+    width: calc(100% - 220px); /* Adjust width to account for sidebar */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure navigation items fit within fixed height */
+.dashboard-container .sidebar .nav-list {
+    padding: 20px 0;
+    height: calc(100vh - 100px); /* Adjust based on your header height */
+    overflow-y: auto; /* Allow scrolling only if needed */
+}
+
+/* Updated Topbar Styles */
+.dashboard-container .content .topbar {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #edf2f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    height: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.dashboard-container .content .topbar .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.dashboard-container .content .topbar .breadcrumbs a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.dashboard-container .content .topbar .breadcrumbs a:hover {
+    color: #2980b9;
+}
+
+.dashboard-container .content .topbar .breadcrumbs span {
+    color: #94a3b8;
+}
+
+.dashboard-container .content .topbar .user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 2px 15px;
+    background-color: #f8fafc;
+    border-radius: 30px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.dashboard-container .content .topbar .user-info:hover {
+    background-color: #f1f5f9;
+}
+
+.dashboard-container .content .topbar .user-info img.user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Adjust main content to account for sticky topbar */
+.dashboard-container .content .main-content {
+    padding-top: 20px;
+    margin-top: 0;
+}
