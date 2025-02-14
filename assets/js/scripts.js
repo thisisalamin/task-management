@@ -96,6 +96,39 @@ $(document).ready(function() {
   $('.nav-list .sub-menu a').click(function(e) {
     e.stopPropagation();
   });
+
+  // Mobile Menu Toggle
+  // Add mobile menu toggle button
+  $('<button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>').insertAfter('.sidebar');
+  $('<div class="sidebar-overlay"></div>').insertAfter('.sidebar');
+
+  // Toggle mobile menu
+  $('.mobile-menu-toggle').on('click', function() {
+    $('.sidebar').toggleClass('active');
+    $('.sidebar-overlay').toggleClass('active');
+  });
+
+  // Close menu when clicking overlay
+  $('.sidebar-overlay').on('click', function() {
+    $('.sidebar').removeClass('active');
+    $('.sidebar-overlay').removeClass('active');
+  });
+
+  // Close menu when clicking a menu item
+  $('.nav-list li a').on('click', function() {
+    if (window.innerWidth <= 768) {
+      $('.sidebar').removeClass('active');
+      $('.sidebar-overlay').removeClass('active');
+    }
+  });
+
+  // Handle window resize
+  $(window).on('resize', function() {
+    if (window.innerWidth > 768) {
+      $('.sidebar').removeClass('active');
+      $('.sidebar-overlay').removeClass('active');
+    }
+  });
 });
 
 // Add close notification functionality
