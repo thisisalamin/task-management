@@ -146,3 +146,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.querySelector('.close-notification').addEventListener('click', function() {
+  const notification = document.querySelector('.maintenance-notification');
+  notification.style.animation = 'slideOutToTop 0.5s ease-out forwards';
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 500);
+});
+
+// Add this to your existing CSS
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideOutToTop {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(style);
