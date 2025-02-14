@@ -74,7 +74,7 @@ $(document).ready(function() {
       }
       
       // Toggle current submenu
-      $submenu.slideToggle(500);
+      $submenu.slideToggle(0);
       $icon.toggleClass('fa-chevron-right fa-chevron-down');
     }
   });
