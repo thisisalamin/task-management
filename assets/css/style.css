@@ -75,6 +75,54 @@ body {
   border-radius: 5px;
 }
 
+/* Sidebar Menu */
+ul.sidebar-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-type: none;
+}
+.sidebar-menu li a span {
+  margin-right: 20px;
+  color: #fff;
+}
+.sidebar-menu li a  {
+  padding: 15px 15px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+li.have-children ul {
+  padding: 0px;
+} 
+li.have-children ul li a {
+  padding-left: 30px;
+} 
+
+li.have-children, li {
+  position: relative;
+}
+.have-children .submenu-toggle i::after {
+  position: absolute;
+  right: 30px;
+  content: "\f054";
+  color: #333;
+  transition: all .5s;
+}
+
+li.active.have-children i::after {
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.sidebar-menu .have-children > ul {
+  display: none;
+}
+
+/* End Sidebar Menu */
+
 .nav-list .sub-menu.active {
   display: block; /* Display submenus when active */
 }

@@ -127,6 +127,23 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function(){
+
+  $(".sidebar-menu > li.have-children a").on("click", function(i){
+      i.preventDefault();
+    if( ! $(this).parent().hasClass("active") ){
+      $(".sidebar-menu li ul").slideUp();
+      $(this).next().slideToggle();
+      $(".sidebar-menu li").removeClass("active");
+      $(this).parent().addClass("active");
+    }
+    else{
+      $(this).next().slideToggle();
+      $(".sidebar-menu li").removeClass("active");
+        }
+    });
+});
+
 // Remove the duplicate menu handlers from DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', function() {
     // Keep only notification related code here

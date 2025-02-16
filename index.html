@@ -3,14 +3,14 @@
 <head>
   <title>Task Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/assets/css/dark-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=1.0.0">
+  <link rel="stylesheet" type="text/css" href="/assets/css/dark-theme.css?v=1.0.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/scripts.js?v=1.0.0"></script>
 </head>
 <body>
   <div class="dashboard-container">
@@ -19,34 +19,89 @@
       <div class="sidebar-header">
         <img src="/assets/images/nlogo.png" alt="NerdyTechs Logo" class="logo">
       </div>
-      <ul class="nav-list">
+      <ul class="sidebar-menu">
         <li class="active">
-          <a href="#"><i class="fas fa-th-large"></i> Dashboard</a>
-        </li>
-        <li>
-          <a href="#" class="submenu-toggle">
-            <i class="fas fa-file-invoice"></i> 
-            Invoices
-            <i class="fas fa-chevron-down"></i>
+          <a href="index.php" class="dashboard">
+            <i class="fas fa-th-large"></i> Dashboard
           </a>
-          <ul class="sub-menu">
-            <li><a href="#"><i class="fas fa-check-circle"></i> Paid Invoices</a></li>
-            <li><a href="#"><i class="fas fa-clock"></i> Unpaid Invoices</a></li>
+        </li>
+        <li class="have-children">
+          <a href="#" class="submenu-toggle invoices">
+            <i class="fas fa-file-invoice"></i> Invoices
+          </a>
+          <ul>
+            <li><a href="paidInvoices.php" class="paid-invoices"><i class="fas fa-check-circle"></i> Paid Invoices</a></li>
+            <li><a href="unpaidInvoices.php" class="unpaid-invoices"><i class="fas fa-clock"></i> Unpaid Invoices</a></li>
           </ul>
         </li>
-        <li>
-          <a href="#" class="submenu-toggle">
-            <i class="fas fa-ticket-alt"></i> 
-            Tickets
-            <i class="fas fa-chevron-down"></i>
+        <li class="have-children">
+          <a href="#" class="submenu-toggle products">
+            <i class="fa fa-sitemap"></i> Products
           </a>
           <ul class="sub-menu">
-            <li><a href="#"><i class="fas fa-ticket-alt"></i> My Tickets</a></li>
-            <li><a href="#"><i class="fas fa-plus-circle"></i> Submit a Ticket</a></li>
+            <li><a href="products.php" class="manage-products"><i class="fa fa-th-list"></i> Manage Products</a></li>
           </ul>
+        </li>
+        <li class="have-children">
+          <a href="#" class="submenu-toggle clients">
+            <i class="fa fa-users"></i> Clients
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#" class="manage-clients"><i class="fa fa-user-plus"></i> Manage Clients</a></li>
+          </ul>
+        </li>
+        <li class="have-children">
+          <a href="#" class="submenu-toggle tickets">
+            <i class="fas fa-ticket-alt"></i> Tickets
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#" class="my-tickets"><i class="fas fa-plus-circle"></i> My Tickets</a></li>
+            <li><a href="#" class="submit-ticket"><i class="fas fa-plus-circle"></i> Submit a Ticket</a></li>
+            <li><a href="#" class="manage-tickets"><i class="fas fa-plus-circle"></i> Manage Tickets</a></li>
+            <li><a href="#" class="manage-projects"><i class="fas fa-plus-circle"></i> Manage Projects</a></li>
+          </ul>
+        </li>
+        <li class="have-children">
+          <a href="#" class="submenu-toggle templates">
+            <i class="fa fa-cubes"></i> Templates
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#" class="email-templates"><i class="fa fa-cube"></i> Email Templates</a></li>
+          </ul>
+        </li>
+        <li class="have-children">
+          <a href="logout.php" class="submenu-toggle templates">
+            <i class="fa fa-key"></i> Logout
+          </a>
         </li>
       </ul>
     </div>
+    
+    
+    <script>
+        // Get current page or URL to match with menu items
+    const currentPage = window.location.pathname; // Gets the current URL path
+    
+    // Function to highlight the active menu item
+    function setActiveMenuItem() {
+      const menuItems = document.querySelectorAll('.nav-list a'); // Select all menu items
+    
+      menuItems.forEach(item => {
+        // Remove active class from all menu items
+        item.closest('li').classList.remove('active');
+        
+        // Add active class to the menu item that matches the current page
+        if (currentPage.includes(item.classList[0])) {
+          item.closest('li').classList.add('active');
+        }
+      });
+    }
+    
+    // Call the function to set the active menu item on page load
+    setActiveMenuItem();
+    
+    </script>
+    
 
     <!-- Content Area -->
     <div class="content">

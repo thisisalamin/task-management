@@ -60,6 +60,57 @@ body.dark-theme .nav-list .sub-menu li a i {
   color: #fff;
 }
 
+/* Dark Theme Sidebar Menu */
+body.dark-theme ul.sidebar-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-type: none;
+}
+
+body.dark-theme .sidebar-menu li a span {
+  margin-right: 20px;
+  color: #fff;
+}
+
+body.dark-theme .sidebar-menu li a {
+  padding: 15px 15px;
+  display: block;
+  text-decoration: none;
+  color: #cbd5e1;
+}
+
+body.dark-theme li.have-children ul {
+  padding: 0px;
+}
+
+body.dark-theme li.have-children ul li a {
+  padding-left: 30px;
+}
+
+body.dark-theme li.have-children, body.dark-theme li {
+  position: relative;
+}
+
+body.dark-theme .have-children .submenu-toggle i::after {
+  position: absolute;
+  right: 30px;
+  content: "\f054";
+  color: #cbd5e1;
+  transition: all .5s;
+}
+
+body.dark-theme li.active.have-children i::after {
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+body.dark-theme .sidebar-menu .have-children > ul {
+  display: none;
+}
+
 /* Main Content Dark Styles */
 body.dark-theme .section {
   background-color: transparent;
