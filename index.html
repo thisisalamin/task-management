@@ -79,27 +79,26 @@
     
     
     <script>
-        // Get current page or URL to match with menu items
-    const currentPage = window.location.pathname; // Gets the current URL path
-    
-    // Function to highlight the active menu item
-    function setActiveMenuItem() {
-      const menuItems = document.querySelectorAll('.nav-list a'); // Select all menu items
-    
-      menuItems.forEach(item => {
-        // Remove active class from all menu items
-        item.closest('li').classList.remove('active');
-        
-        // Add active class to the menu item that matches the current page
-        if (currentPage.includes(item.classList[0])) {
-          item.closest('li').classList.add('active');
-        }
-      });
-    }
-    
-    // Call the function to set the active menu item on page load
-    setActiveMenuItem();
-    
+      // Get current page or URL to match with menu items
+      const currentPage = window.location.pathname; // Gets the current URL path
+
+      // Function to highlight the active menu item
+      function setActiveMenuItem() {
+        const menuItems = document.querySelectorAll('.sidebar-menu a'); // Select all menu items
+
+        menuItems.forEach(item => {
+          // Remove active class from all menu items
+          item.closest('li').classList.remove('active');
+          
+          // Add active class to the menu item that matches the current page
+          if (currentPage.includes(item.classList[0])) {
+            item.closest('li').classList.add('active');
+          }
+        });
+      }
+
+      // Call the function to set the active menu item on page load
+      setActiveMenuItem();
     </script>
     
 
