@@ -190,3 +190,120 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Toggle Switch Icons Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleSwitches = document.querySelectorAll('.toggle-switch input[type="checkbox"]');
+  
+  toggleSwitches.forEach(toggle => {
+    // Create icon element if it doesn't exist
+    let icon = toggle.parentElement.querySelector('.toggle-icon');
+    if (!icon) {
+      icon = document.createElement('i');
+      icon.className = 'toggle-icon fas ' + (toggle.checked ? 'fa-check' : 'fa-times');
+      toggle.parentElement.querySelector('.toggle-slider').appendChild(icon);
+    }
+
+    // Update icon on change
+    toggle.addEventListener('change', function() {
+      const icon = this.parentElement.querySelector('.toggle-icon');
+      if (this.checked) {
+        icon.className = 'toggle-icon fas fa-check';
+        icon.style.color = '#4a5568'; // Dark color for visibility on white circle
+      } else {
+        icon.className = 'toggle-icon fas fa-times';
+        icon.style.color = '#4a5568'; // Dark color for visibility on white circle
+      }
+    });
+  });
+});
+
+// Progress Bar Control
+function updateProgress(currentStep) {
+  const totalSteps = 4;
+  const progressPercentage = (currentStep / totalSteps) * 100;
+  
+  // Update progress bar width
+  document.querySelector('.progress-bar').style.width = `${progressPercentage}%`;
+  
+  // Update steps status
+  document.querySelectorAll('.step').forEach((step, index) => {
+    if (index < currentStep) {
+      step.classList.add('completed');
+      step.classList.remove('active');
+    } else if (index === currentStep) {
+      step.classList.add('active');
+      step.classList.remove('completed');
+    } else {
+      step.classList.remove('completed', 'active');
+    }
+  });
+}
+
+// Example usage:
+// updateProgress(0); // First step
+// updateProgress(1); // Second step
+// updateProgress(2); // Third step
+// updateProgress(3); // Fourth step
+
+// Multi-step form navigation
+document.addEventListener('DOMContentLoaded', function() {
+  let currentStep = 0;
+  const totalSteps = 4;
+  const prevBtn = document.getElementById('prevStep');
+  const nextBtn = document.getElementById('nextStep');
+  const submitBtn = document.getElementById('submitInvoice');
+
+  function showStep(step) {
+    // Hide all steps
+    document.querySelectorAll('.step-content').forEach(content => {
+      content.style.display = 'none';
+    });
+    
+    // Show current step
+    document.querySelector(`#step${step + 1}`).style.display = 'block';
+    
+    // Update progress
+    updateProgress(step);
+    
+    // Update buttons
+    prevBtn.disabled = step === 0;
+    if (step === totalSteps - 1) {
+      nextBtn.style.display = 'none';
+      submitBtn.style.display = 'block';
+    } else {
+      nextBtn.style.display = 'block';
+      submitBtn.style.display = 'none';
+    }
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentStep < totalSteps - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  submitBtn.addEventListener('click', () => {
+    // Add your form submission logic here
+    alert('Invoice generated successfully!');
+  });
+
+  // Initialize first step
+  showStep(currentStep);
+
+  // Add Service Button Handler
+  document.querySelector('.add-service-btn')?.addEventListener('click', function() {
+    const serviceItem = document.querySelector('.service-item').cloneNode(true);
+    // Clear inputs in the cloned item
+    serviceItem.querySelectorAll('input').forEach(input => input.value = '');
+    this.insertAdjacentElement('beforebegin', serviceItem);
+  });
+});

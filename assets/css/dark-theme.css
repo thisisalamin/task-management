@@ -680,3 +680,165 @@ body.dark-theme .form-checkbox input[type="checkbox"]:checked {
 .dark-theme .comment-text {
     color: #cbd5e1;
 }
+
+/* Dark Theme Toggle Switch */
+.dark-theme .toggle-switch .toggle-slider {
+    background-color: #4a5568;
+}
+
+.dark-theme .toggle-switch input:checked + .toggle-slider {
+    background-color: #60a5fa;
+}
+
+.dark-theme .toggle-switch .toggle-slider:before {
+    background-color: #e2e8f0;
+}
+
+.dark-theme .toggle-label {
+    color: #e2e8f0;
+}
+
+.dark-theme .toggle-switch input:disabled + .toggle-slider {
+    opacity: 0.5;
+    background-color: #2d3748;
+}
+
+/* Dark Theme Toggle Switch Icons */
+.dark-theme .toggle-switch input:not(:checked) ~ .toggle-slider .toggle-icon {
+  color: #94a3b8;
+}
+
+.dark-theme .toggle-switch input:checked ~ .toggle-slider .toggle-icon {
+  color: #fff;
+}
+
+/* Dark Theme Progress Bar */
+.dark-theme .progress-section {
+  background: #1e293b;
+}
+
+.dark-theme .progress-steps::before {
+  background: #334155;
+}
+
+.dark-theme .progress-bar {
+  background: #60a5fa;
+}
+
+.dark-theme .step-circle {
+  background: #1e293b;
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+.dark-theme .step-text {
+  color: #94a3b8;
+}
+
+.dark-theme .step.active .step-circle {
+  background: #60a5fa;
+  border-color: #60a5fa;
+  color: #fff;
+}
+
+.dark-theme .step.active .step-text {
+  color: #60a5fa;
+}
+
+.dark-theme .step.completed .step-circle {
+  background: #60a5fa;
+  border-color: #60a5fa;
+  color: #fff;
+}
+
+.dark-theme .step.completed .step-text {
+  color: #60a5fa;
+}
+
+/* Dark Theme Multi-step Form */
+.dark-theme .step-content-wrapper {
+  background: #1e293b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .step-content h3 {
+  color: #e2e8f0;
+}
+
+.dark-theme .service-item {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark-theme .invoice-summary {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+.dark-theme .summary-row {
+  border-bottom-color: #334155;
+  color: #e2e8f0;
+}
+
+.dark-theme .summary-row .amount {
+  color: #60a5fa;
+}
+
+.dark-theme .summary-row.total {
+  color: #fff;
+}
+
+.dark-theme .step-navigation {
+  border-top-color: #334155;
+}
+
+.dark-theme .form-row input,
+.dark-theme .form-row select {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+.dark-theme .form-row input:focus,
+.dark-theme .form-row select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.dark-theme .add-service-btn {
+  background-color: #334155;
+  color: #e2e8f0;
+}
+
+.dark-theme .add-service-btn:hover {
+  background-color: #475569;
+}
+
+/* Dark theme form validation states */
+.dark-theme .form-control.error {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.dark-theme .form-control.success {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Dark theme step content transitions */
+.dark-theme .step-content {
+  animation: darkFadeIn 0.3s ease-in-out;
+}
+
+@keyframes darkFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px);
+    background-color: #1a1a1a;
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+    background-color: #1e293b;
+  }
+}
