@@ -129,19 +129,31 @@ $(document).ready(function() {
 
 $(document).ready(function(){
 
-  $(".sidebar-menu > li.have-children a").on("click", function(i){
-      i.preventDefault();
-    if( ! $(this).parent().hasClass("active") ){
+  $(".sidebar-menu > li.have-children > a").on("click", function(i){
+    i.preventDefault();
+    if (!$(this).parent().hasClass("active")) {
       $(".sidebar-menu li ul").slideUp();
       $(this).next().slideToggle();
       $(".sidebar-menu li").removeClass("active");
       $(this).parent().addClass("active");
-    }
-    else{
+    } else {
       $(this).next().slideToggle();
       $(".sidebar-menu li").removeClass("active");
-        }
-    });
+    }
+  });
+
+  // Add this new handler for submenu links
+  $(".sidebar-menu li ul li a").on("click", function(e){
+    // Allow navigation
+    const href = $(this).attr('href');
+    if (href && href !== '#') {
+      // No need to prevent default if we are navigating
+      window.location.href = href;
+    } else {
+      // Prevent default if href is not valid
+      e.preventDefault();
+    }
+  });
 });
 
 // Remove the duplicate menu handlers from DOMContentLoaded event
