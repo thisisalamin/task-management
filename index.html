@@ -1,352 +1,278 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Task Dashboard</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=1.0.0">
-  <link rel="stylesheet" type="text/css" href="/assets/css/dark-theme.css?v=1.0.0">
+  <link rel="stylesheet" type="text/css" href="/assets/css/dark-theme-new.css?v=1.0.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/scripts.js?v=1.0.0"></script>
 </head>
 <body>
-  <div class="dashboard-container">
+  <div class="container">
     <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <img src="/assets/images/nlogo.png" alt="NerdyTechs Logo" class="logo">
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="/assets/images/nlogo.png" alt="NerdyTechs Logo">
       </div>
       <ul class="sidebar-menu">
-        <li class="active">
-          <a href="index.php">
-            <i class="fas fa-th-large"></i> Dashboard
-          </a>
-        </li>
-        <li class="have-children">
-          <a class="submenu-toggle invoices">
-            <i class="fas fa-file-invoice"></i> Invoices
-          </a>
-          <ul>
-            <li><a href="paidInvoices.php"><i class="fas fa-check-circle"></i> Paid Invoices</a></li>
-            <li><a href="unpaidInvoices.php"><i class="fas fa-clock"></i> Unpaid Invoices</a></li>
-          </ul>
-        </li>
-        <li class="have-children">
-          <a class="submenu-toggle products">
-            <i class="fa fa-sitemap"></i> Products
-          </a>
-          <ul class="sub-menu">
-            <li><a href="products.php"><i class="fa fa-th-list"></i> Manage Products</a></li>
-          </ul>
-        </li>
-        <li class="have-children">
-          <a href="#" class="submenu-toggle clients">
-            <i class="fa fa-users"></i> Clients
-          </a>
-          <ul class="sub-menu">
-            <li><a href="#" class="manage-clients"><i class="fa fa-user-plus"></i> Manage Clients</a></li>
-          </ul>
-        </li>
-        <li class="have-children">
-          <a href="#" class="submenu-toggle tickets">
-            <i class="fas fa-ticket-alt"></i> Tickets
-          </a>
-          <ul class="sub-menu">
-            <li><a href="#" class="my-tickets"><i class="fas fa-plus-circle"></i> My Tickets</a></li>
-            <li><a href="#" class="submit-ticket"><i class="fas fa-plus-circle"></i> Submit a Ticket</a></li>
-            <li><a href="#" class="manage-tickets"><i class="fas fa-plus-circle"></i> Manage Tickets</a></li>
-            <li><a href="#" class="manage-projects"><i class="fas fa-plus-circle"></i> Manage Projects</a></li>
-          </ul>
-        </li>
-        <li class="have-children">
-          <a href="#" class="submenu-toggle templates">
-            <i class="fa fa-cubes"></i> Templates
-          </a>
-          <ul class="sub-menu">
-            <li><a href="#" class="email-templates"><i class="fa fa-cube"></i> Email Templates</a></li>
-          </ul>
-        </li>
-        <li class="have-children">
-          <a href="logout.php" class="submenu-toggle templates">
-            <i class="fa fa-key"></i> Logout
-          </a>
-        </li>
+        <li><a href="index.php" class="active"><i class="fas fa-chart-pie"></i> <span>Dashboard</span></a></li>
+        <li><a href="#" class="invoices"><i class="fas fa-file-invoice-dollar"></i> <span>Invoices</span></a></li>
+        <li><a href="#" class="products"><i class="fas fa-box"></i> <span>Products</span></a></li>
+        <li><a href="#" class="clients"><i class="fas fa-users"></i> <span>Clients</span></a></li>
+        <li><a href="#" class="tickets"><i class="fas fa-ticket-alt"></i> <span>Tickets</span></a></li>
+        <li><a href="#" class="templates"><i class="fas fa-file-alt"></i> <span>Templates</span></a></li>
+        <li><a href="#"><i class="fas fa-bell"></i> <span>Notifications</span></a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i> <span>Mail Box</span></a></li>
+        <li><a href="#"><i class="fas fa-user-circle"></i> <span>My Profile</span></a></li>
+        <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
       </ul>
-    </div>
-    
-    
-    <script>
-      // Get current page or URL to match with menu items
-      const currentPage = window.location.pathname; // Gets the current URL path
+    </aside>
 
-      // Function to highlight the active menu item
-      function setActiveMenuItem() {
-        const menuItems = document.querySelectorAll('.sidebar-menu a'); // Select all menu items
-
-        menuItems.forEach(item => {
-          // Remove active class from all menu items
-          item.closest('li').classList.remove('active');
-          
-          // Add active class to the menu item that matches the current page
-          if (currentPage.includes(item.classList[0])) {
-            item.closest('li').classList.add('active');
-          }
-        });
-      }
-
-      // Call the function to set the active menu item on page load
-      setActiveMenuItem();
-    </script>
-    
-
-    <!-- Content Area -->
-    <div class="content">
-      <!-- Topbar -->
-      <div class="topbar">
-        <div class="breadcrumbs">
-          <a href="#">Home</a> > <span>Statistics</span>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="breadcrumb">
+          <a href="#">Home</a>
+          <span>/</span>
+          <a href="#">Dashboard</a>
+          <span>/</span>
+          <a href="#" style="color: var(--text-primary);">NT Admin</a>
         </div>
-        <div class="user-info-wrapper">
+        <div class="user-menu">
           <button id="themeToggle" class="theme-toggle-btn">
             <i class="fas fa-sun"></i>
           </button>
-          <div class="user-info">
-            Dylan Cole - Client <img src="https://i.pravatar.cc/50" alt="User Avatar" class="user-avatar">
-            <div class="user-info-submenu">
-              <div class="arrow-up"></div>
-              <ul>
-                <li><a href="settings.php"><i class="fas fa-cogs"></i> Settings</a></li>
-                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-              </ul>
-            </div>
-          </div>
+          <div class="user-avatar">DC</div>
         </div>
+      </header>
+
+      <!-- Notification Banner -->
+      <div class="notification-banner">
+        <p><i class="fas fa-exclamation-triangle"></i> Ticket submission is down right now for maintenance</p>
+        <span class="close-banner"><i class="fas fa-times"></i></span>
       </div>
 
-      <!-- Main Content - Your Existing Content -->
-      <div class="main-content">
-        <div class="maintenance-notification">
-          <div class="notification-content">
-            <i class="fas fa-exclamation-triangle"></i>
-            <span>Ticket submission is down right now for maintenance</span>
-          </div>
-          <button class="close-notification"><i class="fas fa-times"></i></button>
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+        <div class="welcome-text">
+          <h2>Welcome, Admin!</h2>
+          <p>Manage all your tasks in one place</p>
         </div>
-        <div class="container">
-          <div class="task-sections">
-            <div class="section">
-              <div class="section-title">
-                <p><i class="fas fa-circle progress-color"></i> In progress • <span>2 task</span></p>
-                <i class="fas fa-chevron-up" onclick="toggleSection(event, this)"></i>
-              </div>
-              <div class="section-content" style="display: block;">
-                <table class="task-table">
-                  <thead>
-                    <tr>
-                      <th>Task name</th>
-                      <th>Discription</th>
-                      <th>Assigned</th>
-                      <th>Start date</th>
-                      <th>Priority</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Update Data (Project Alpha)</td>
-                      <td>Update or correct data for the Alpha project...</td>
-                      <td>
-                        <div class="inline-images">
-                          <img src="https://i.pravatar.cc/30" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                          <img src="https://i.pravatar.cc/31" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                          <img src="https://i.pravatar.cc/32" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                        </div>
-                      </td>
-                      <td>1 days left</td>
-                      <td class="priority-high">
-                        <i class="fas fa-flag" style="color: #dc2626;"></i> High
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Fix Images (E-Shop)</td>
-                      <td>Replace or repair broken images in the E-Shop...</td>
-                      <td>
-                        <div class="inline-images">
-                          <img src="https://i.pravatar.cc/33" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                          <img src="https://i.pravatar.cc/34" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                          <img src="https://i.pravatar.cc/35" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                        </div>
-                      </td>
-                      <td>5 days left</td>
-                      <td class="priority-low">
-                        <i class="fas fa-flag" style="color: #2563eb;"></i> Low
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <button class="add-task" onclick="showTaskForm()">+ Add task</button>
+        <a href="#" class="see-all">See all tasks <i class="fas fa-chevron-right"></i></a>
+      </section>
+
+      <!-- Quick Actions Grid -->
+      <section class="quick-actions">
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-user-cog" style="color: #0A84FF; font-size: 24px;"></i>
+          </div>
+          <h3>cPanel Login</h3>
+          <p>Manage your website</p>
+        </div>
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-globe" style="color: #30D158; font-size: 24px;"></i>
+          </div>
+          <h3>Domains</h3>
+          <p>Manage your domains</p>
+        </div>
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-file-invoice-dollar" style="color: #FF9500; font-size: 24px;"></i>
+          </div>
+          <h3>Invoices</h3>
+          <p>View your invoices</p>
+        </div>
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-ticket-alt" style="color: #5E5CE6; font-size: 24px;"></i>
+          </div>
+          <h3>Ticket Submission</h3>
+          <p>Submit a Ticket</p>
+        </div>
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-users" style="color: #BF5AF2; font-size: 24px;"></i>
+          </div>
+          <h3>Clients</h3>
+          <p>View Client List</p>
+        </div>
+        <div class="action-card">
+          <div class="action-icon">
+            <i class="fas fa-cog" style="color: #FF3B30; font-size: 24px;"></i>
+          </div>
+          <h3>Settings</h3>
+          <p>Account settings</p>
+        </div>
+      </section>
+
+      <!-- In Progress Tasks -->
+      <section class="tasks-section">
+        <div class="section-header">
+          <div class="section-title">
+            <div class="status-indicator" style="background-color: #0A84FF;"></div>
+            <h3>In progress • <span>2 tasks</span></h3>
+          </div>
+          <button class="collapse-btn">
+            <i class="fas fa-chevron-up"></i>
+          </button>
+        </div>
+        <div class="task-list">
+          <div class="task-item">
+            <div>
+              <div class="client-name">hughesautomotivecenter.com</div>
+              <div class="task-description">Updates to website shop section</div>
+            </div>
+            <div class="task-meta">
+              <div class="assignee">
+                <div class="assignee-avatar">
+                  <img src="https://i.pravatar.cc/30" alt="Avatar">
+                </div>
+                <div class="assignee-info">
+                  <div class="assignee-name">Team</div>
+                  <div class="assignee-role">3 members</div>
+                </div>
               </div>
             </div>
-
-            <div class="section">
-              <div class="section-title">
-                <p><i class="fas fa-circle review-color"></i> In review • <span>1 task</span></p>
-                <i class="fas fa-chevron-up" onclick="toggleSection(event, this)"></i>
-              </div>
-              <div class="section-content" style="display: block;">
-                <table class="task-table">
-                  <thead>
-                    <tr>
-                      <th>Task name</th>
-                      <th>Discription</th>
-                      <th>Assigned</th>
-                      <th>Start date</th>
-                      <th>Priority</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Deploy App (HR Portal)</td>
-                      <td>Deploy the HR Portal application to the production...</td>
-                      <td>
-                        <div class="inline-images">
-                          <img src="https://i.pravatar.cc/36" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                          <img src="https://i.pravatar.cc/37" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                        </div>
-                      </td>
-                      <td>10 days left</td>
-                      <td class="priority-normal">
-                        <i class="fas fa-flag" style="color: #059669;"></i> Normal
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <button class="add-task" onclick="showTaskForm()">+ Add task</button>
-              </div>
+            <div class="task-date">
+              <div class="days-ago">1 day</div>
+              <div>ago</div>
             </div>
-
-            <div class="section">
-              <div class="section-title">
-                <p><i class="fas fa-circle completed-color"></i> Completed • <span>8 task</span></p>
-                <i class="fas fa-chevron-down" onclick="toggleSection(event, this)"></i>
-              </div>
-              <div class="section-content" style="display: none;">
-                <table class="task-table">
-                  <thead>
-                    <tr>
-                      <th>Task name</th>
-                      <th>Description</th>
-                      <th>Assigned</th>
-                      <th>Completion Date</th>
-                      <th>Priority</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Design Homepage (Project Beta)</td>
-                      <td>Design the homepage for the Beta project...</td>
-                      <td>
-                        <div class="inline-images">
-                          <img src="https://i.pravatar.cc/38" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                          <img src="https://i.pravatar.cc/39" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                        </div>
-                      </td>
-                      <td>2023-09-15</td>
-                      <td class="priority-high">
-                        <i class="fas fa-flag" style="color: #dc2626;"></i> High
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Update Database (CRM System)</td>
-                      <td>Update the customer database for the CRM system...</td>
-                      <td>
-                        <div class="inline-images">
-                          <img src="https://i.pravatar.cc/40" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                        </div>
-                      </td>
-                      <td>2023-09-10</td>
-                      <td class="priority-normal">
-                        <i class="fas fa-flag" style="color: #059669;"></i> Normal
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Fix Bugs (Mobile App)</td>
-                      <td>Fix critical bugs in the mobile application...</td>
-                      <td>
-                        <div class="inline-images">
-                          <img src="https://i.pravatar.cc/41" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                          <img src="https://i.pravatar.cc/42" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                        </div>
-                      </td>
-                      <td>2023-09-05</td>
-                      <td class="priority-low">
-                        <i class="fas fa-flag" style="color: #2563eb;"></i> Low
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Optimize Database (Finance App)</td>
-                      <td>Optimize the database for the Finance application...</td>
-                      <td>
-                        <div class="inline-images">
-                          <img src="https://i.pravatar.cc/43" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                          <img src="https://i.pravatar.cc/44" alt="Avatar" style="border-radius:50%; margin-right:5px;">
-                        </div>
-                      </td>
-                      <td>2023-09-01</td>
-                      <td class="priority-high">
-                        <i class="fas fa-flag" style="color: #dc2626;"></i> High
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            <div class="priority-high">
+              <i class="fas fa-flag" style="color: #dc2626;"></i> High
+            </div>
+            <div class="task-status">
+              <span class="status-badge"></span>
             </div>
           </div>
-          <div class="user-info-section-container">
-            <div class="section user-info-section modern-style">
-              <div class="section-title" style="background-color: transparent;">
-                <p>User Information</p>
-                <a class="dash-button modern-button" href="#">See all <i class="fa-solid fa-angle-right"></i></a>
-              </div>
-              <div class="user-info-grid three-columns">
-                <div class="user-info-card modern-card bg-cyan">
-                  <i class="fas fa-user"></i>
-                  <h6>cPanel Login</h6>
-                  <p>Manage your website</p>
+          
+          <div class="task-item">
+            <div>
+              <div class="client-name">Prosantashop</div>
+              <div class="task-description">Under shop santa suits, Put under vintage suits TOY MAKER SUIT SET</div>
+            </div>
+            <div class="task-meta">
+              <div class="assignee">
+                <div class="assignee-avatar">
+                  <img src="https://i.pravatar.cc/33" alt="Avatar">
                 </div>
-                <div class="user-info-card modern-card bg-success">
-                  <i class="fas fa-globe"></i>
-                  <h6>Domains</h6>
-                  <p>Manage your domains</p>
-                </div>
-                <div class="user-info-card modern-card bg-warning">
-                  <i class="fas fa-file-invoice"></i>
-                  <h6>Invoices</h6>
-                  <p>View your invoices</p>
-                </div>
-                <div class="user-info-card modern-card bg-danger">
-                  <i class="fas fa-ticket-alt"></i>
-                  <h6>Ticket Submission</h6>
-                  <p>Submit support tickets</p>
-                </div>
-                <div class="user-info-card modern-card bg-info">
-                  <i class="fas fa-info-circle"></i>
-                  <h6>Website Information</h6>
-                  <p>View website details</p>
-                </div>
-                <div class="user-info-card modern-card bg-secondary">
-                  <i class="fas fa-cogs"></i>
-                  <h6>Settings</h6>
-                  <p>Account settings</p>
+                <div class="assignee-info">
+                  <div class="assignee-name">Mohammad Alamin</div>
+                  <div class="assignee-role">Designer</div>
                 </div>
               </div>
+            </div>
+            <div class="task-date">
+              <div class="days-ago">5 days</div>
+              <div>left</div>
+            </div>
+            <div class="priority-low">
+              <i class="fas fa-flag" style="color: #2563eb;"></i> Low
+            </div>
+            <div class="task-status">
+              <span class="status-badge"></span>
+            </div>
+          </div>
+
+          <div style="padding: 15px 20px;">
+            <a href="#" class="see-all" onclick="showTaskForm()">+ Add task</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- In Review Tasks -->
+      <section class="tasks-section">
+        <div class="section-header">
+          <div class="section-title">
+            <div class="status-indicator" style="background-color: var(--accent-green);"></div>
+            <h3>In review • <span>1 task</span></h3>
+          </div>
+          <button class="collapse-btn">
+            <i class="fas fa-chevron-up"></i>
+          </button>
+        </div>
+        <div class="task-list">
+          <div class="task-item">
+            <div>
+              <div class="client-name">Deploy App (HR Portal)</div>
+              <div class="task-description">Deploy the HR Portal application to production</div>
+            </div>
+            <div class="task-meta">
+              <div class="assignee">
+                <div class="assignee-avatar">
+                  <img src="https://i.pravatar.cc/36" alt="Avatar">
+                </div>
+                <div class="assignee-info">
+                  <div class="assignee-name">Team</div>
+                  <div class="assignee-role">2 members</div>
+                </div>
+              </div>
+            </div>
+            <div class="task-date">
+              <div class="days-ago">10 days</div>
+              <div>left</div>
+            </div>
+            <div class="priority-normal">
+              <i class="fas fa-flag" style="color: #059669;"></i> Normal
+            </div>
+            <div class="task-status">
+              <span class="status-badge" style="background-color: var(--accent-green);"></span>
+            </div>
+          </div>
+
+          <div style="padding: 15px 20px;">
+            <a href="#" class="see-all" onclick="showTaskForm()">+ Add task</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Completed Tasks -->
+      <section class="tasks-section">
+        <div class="section-header">
+          <div class="section-title">
+            <div class="status-indicator" style="background-color: var(--text-secondary);"></div>
+            <h3>Completed • <span>8 tasks</span></h3>
+          </div>
+          <button class="collapse-btn">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+        <div class="task-list" style="display: none;">
+          <!-- Task items will be loaded here -->
+          <div class="task-item">
+            <div>
+              <div class="client-name">Design Homepage (Project Beta)</div>
+              <div class="task-description">Design the homepage for the Beta project</div>
+            </div>
+            <div class="task-meta">
+              <div class="assignee">
+                <div class="assignee-avatar">
+                  <img src="https://i.pravatar.cc/38" alt="Avatar">
+                </div>
+                <div class="assignee-info">
+                  <div class="assignee-name">Team</div>
+                  <div class="assignee-role">2 members</div>
+                </div>
+              </div>
+            </div>
+            <div class="task-date">
+              <div class="days-ago">2023-09-15</div>
+            </div>
+            <div class="priority-high">
+              <i class="fas fa-flag" style="color: #dc2626;"></i> High
+            </div>
+            <div class="task-status">
+              <span class="status-badge" style="background-color: var(--text-secondary);"></span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
 
   <!-- Mobile Menu Toggle Button -->
@@ -382,6 +308,100 @@
       </form>
     </div>
   </div>
-  <script src="scripts.js"></script>
+
+  <script>
+    // Banner close functionality
+    document.querySelector('.close-banner').addEventListener('click', function() {
+      document.querySelector('.notification-banner').style.display = 'none';
+    });
+
+    // Task section collapse functionality
+    document.querySelectorAll('.collapse-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        const taskList = this.closest('.tasks-section').querySelector('.task-list');
+        
+        if (icon.classList.contains('fa-chevron-up')) {
+          icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+          taskList.style.display = 'none';
+        } else {
+          icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+          taskList.style.display = 'block';
+        }
+      });
+    });
+
+    // Add hover effects to sidebar menu items
+    document.querySelectorAll('.sidebar-menu a').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateX(2px)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        if (!this.classList.contains('active')) {
+          this.style.transform = 'translateX(0)';
+        }
+      });
+      
+      item.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.sidebar-menu a').forEach(a => {
+          a.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+
+    // Add hover/active effects to action cards
+    document.querySelectorAll('.action-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.querySelector('.action-icon').style.backgroundColor = 'rgba(10, 132, 255, 0.1)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.querySelector('.action-icon').style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
+      });
+      
+      card.addEventListener('mousedown', function() {
+        this.style.transform = 'translateY(-2px)';
+      });
+      
+      card.addEventListener('mouseup', function() {
+        this.style.transform = 'translateY(-4px)';
+      });
+    });
+
+    // Task item hover effects
+    document.querySelectorAll('.task-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.backgroundColor = '';
+      });
+    });
+
+    // Show task form
+    function showTaskForm() {
+      document.getElementById('taskFormPopup').style.display = 'block';
+    }
+
+    // Close task form
+    function closeTaskForm() {
+      document.getElementById('taskFormPopup').style.display = 'none';
+    }
+
+    // Mobile menu toggle functionality
+    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+      document.querySelector('.sidebar').classList.toggle('active');
+      document.querySelector('.sidebar-overlay').classList.toggle('active');
+    });
+
+    document.querySelector('.sidebar-overlay').addEventListener('click', function() {
+      document.querySelector('.sidebar').classList.remove('active');
+      document.querySelector('.sidebar-overlay').classList.remove('active');
+    });
+  </script>
 </body>
 </html>
